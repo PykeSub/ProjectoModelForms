@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from formAPP.forms import formProyecto
 from formAPP.models import Proyecto
 
@@ -24,7 +24,7 @@ def agregarProyecto(request):
 def eliminarProyecto(request, id):
     proyecto = Proyecto.objects.get(id = id)
     proyecto.delete()
-    return render('/proyectos')
+    return redirect('/proyectos')
 
 def actualizarProyecto(request, id):
     proyecto = Proyecto.objects.get(id = id)
